@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4-Section Layout Auto Height Enhanced Images with Text</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://i.pinimg.com/1200x/34/85/8b/34858bb20c384e0d9a3a2bff99e4d73d.jpg') no-repeat center center/cover;
+  }
+
+body::before {
+content: '';
+position: fixed;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background: rgba(0,0,0,0.05);
+pointer-events: none;
+}
+
+.container {
+max-width: 500px;
+margin: 50px auto;
+padding: 20px;
+background: rgba(255,255,255,0.9);
+border: 2px solid transparent;
+box-shadow: 0 0 100px rgba(0,0,0,1);
+border-radius: 7px;
+display: grid;
+grid-template-columns: 1fr;
+gap: 15px;
+}
+
+.section {
+border: 2px solid transparent;
+border-radius: 7px;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: rgba(0,0,0,0.02);
+overflow: hidden;
+height: auto;
+padding: 10px;
+text-align: center;
+position: relative; /* for positioning small text */
+}
+
+.section img {
+width: 100%;
+height: auto;
+object-fit: cover;
+image-rendering: auto;
+filter: contrast(1.1) brightness(1.05) saturate(1.1);
+transition: all 0.3s ease;
+}
+
+.section img:hover {
+filter: contrast(1.2) brightness(1.1) saturate(1.2) drop-shadow(0 0 5px rgba(0,0,0,0.3));
+transform: scale(1.02);
+}
+
+.section p {
+font-family: 'Times New Roman', Times, serif;
+font-size: 1.2rem; /* responsive font size */
+line-height: 1.4;
+margin: 0;
+}
+
+.small-text {
+position: absolute;
+right: 10px;
+bottom: 10px;
+font-size: 0.8rem; /* smaller than sher */
+font-style: italic;
+color: #333;
+}
+
+@media (min-width: 768px) {
+.container {
+grid-template-columns: repeat(2, 1fr);
+}
+.section p {
+font-size: 1.3rem;
+}
+.small-text {
+font-size: 1rem;
+}
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="section"><img src="115.png" alt="#"></div>
+  <div class="section"><img src="12.png" alt="#"></div>
+  <div class="section"><img src="152.png" alt="#"></div>
+  <div class="section">
+    <p>تو خود ہی اپنی دنیا کا معمار بن کے اٹھ<br>یہ سالگرہ تیرے عزم کی بنیاد رکھ گئ</p>
+    <span class="small-text">it's my birthday</span>
+  </div>
+</div>
+</body>
+</html>
